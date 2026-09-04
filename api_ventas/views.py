@@ -1,24 +1,35 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
 
 def bienvenida(request): #Pagina de bienvenida de la API
-    html = """
+    #Variables y tipos de datos
+    nombreProyecto = "API TIENDA ONLINE - Tiendita INACAP"
+    version = 1.0
+    enMantenimiento = False
+
+    #Estructuras de control
+    if enMantenimiento:
+        estadoHtml = "<p style='color: red;'><strong>ESTADO:</strong> En mantenimiento</p>"
+    else:
+        estadoHtml = "<p style='color: green;'><strong>ESTADO:</strong> Operativo</p>"
+
+    #Integracion logica
+    html = f"""
     <!DOCTYPE html>
     <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>API TIENDA ONLINE</title>
+        <title>{nombreProyecto}</title>
         <style>
-            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-            h1 { color: #333; }
+            body {{ font-family: Arial, sans-serif; text-align: center; padding: 50px; }}
+            h1 {{ color: #333; }}
         </style>
     </head>
     <body>
-        <h1>Bienvenido a la API de la Tienda Online "Tiendita INACAP"</h1>
+        <h1>Bienvenido a {nombreProyecto} (v{version})</h1>
         <p>Sistema pensado para la gestion de ventas, sus pedidos y reportes.</p>
+        {estadoHtml}
     </body>
     </html>
     """
