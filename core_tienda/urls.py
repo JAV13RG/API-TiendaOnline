@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
+
+handler404 = 'api_ventas.views.error404View' #Ruta para el error 404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
