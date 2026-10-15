@@ -11,7 +11,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    stock = models.IntegerField(default=0)
+    stock = models.IntegerField
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='productos')
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
