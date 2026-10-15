@@ -1,6 +1,9 @@
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .models import Categoria, Producto
+from .serializers import CategoriaSerializer, ProductoSerializer
 
 def bienvenida(request): #Pagina de bienvenida de la API
     #Variables y tipos de datos
@@ -31,3 +34,11 @@ def error404View(request, exception):
     </html>
     """
     return HttpResponse(html, status=404)
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
