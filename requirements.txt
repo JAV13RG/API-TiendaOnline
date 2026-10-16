@@ -4,7 +4,7 @@ Cython==3.3.0
 Django==6.1.2
 django-cors-headers==4.9.0
 djangorestframework==3.18.3
-Mako==1.4.3.dev0
+Mako==1.4.3
 Markdown==3.11
 MarkupSafe==3.0.4
 meson==1.9.2
